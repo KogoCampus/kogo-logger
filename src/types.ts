@@ -1,5 +1,7 @@
 export type Level = 'debug' | 'info' | 'warn' | 'error' | string;
 
+export type LevelValue = 0 | 1 | 2 | 3 | number;
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Message = any;
 
@@ -21,7 +23,7 @@ export interface LogTransportOptions {
 export type LogTransport = (options: LogTransportOptions) => void;
 
 export interface LoggerConfig {
-    levels?: LogLevelConfig;
+    levels?: { [levelName: Level]: LevelValue; };
     severity?: Level;
     transport?: LogTransport | LogTransport[];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any

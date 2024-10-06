@@ -1,4 +1,4 @@
-import { LogTransport, LogTransportOptions } from '../loggerTypes';
+import { LogTransport, LogTransportOptions } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const availableColors: any = {
@@ -46,7 +46,7 @@ const resetColors = `\x1b[0m`;
 const consoleTransport: LogTransport = (props: LogTransportOptions) => {
     if (!props) return;
     let msg = props.message;
-    let color = null;
+    let color: string | null = null;
     const date = props.date.toLocaleTimeString('en-US', { hour12: true });
 
     // set format with color if available
