@@ -1,3 +1,3 @@
 # Kogo Logger
 
-kogo javascript logger util
+A reusable logging utility for Javascript projects.
