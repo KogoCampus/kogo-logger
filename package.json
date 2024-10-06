@@ -1,7 +1,9 @@
 {
   "name": "kogo-logger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A reusable logging utility.",
+  "author": "KogoCampus",
+  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -14,8 +16,6 @@
     "type": "git",
     "url": "https://github.com/KogoCampus/kogo-logger.git"
   },
-  "author": "KogoCampus",
-  "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
