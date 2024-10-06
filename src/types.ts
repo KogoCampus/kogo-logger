@@ -11,7 +11,7 @@ export interface LogLevelConfig {
 }
 
 // log transport options
-export interface LogTransportOptions {
+export interface LogTransportParams {
     message: string;
     date: Date;
     level: Level;
@@ -20,7 +20,7 @@ export interface LogTransportOptions {
     options?: any;
 }
 
-export type LogTransport = (options: LogTransportOptions) => void;
+export type LogTransport = (options: LogTransportParams) => void;
 
 export interface LoggerConfig {
     levels?: { [levelName: Level]: LevelValue; };

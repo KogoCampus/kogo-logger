@@ -1,4 +1,4 @@
-import { Level, LogTransportOptions, LogTransport, LoggerConfig, Message } from './types';
+import { Level, LoggerConfig, Message } from './types';
 import consoleTransport from './transports/consoleTransport';
 
 const asyncFunc = (cb: Function) => setTimeout(cb, 0);
@@ -13,7 +13,7 @@ const defaultConfig: LoggerConfig = {
     severity: 'debug',
     async: false,
     asyncFunc,
-    transport: consoleTransport,
+    transport: consoleTransport(),
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -81,8 +81,4 @@ const createLogger = (config: LoggerConfig): Logger => new Logger(config);
 
 export default createLogger;
 
-export type {
-    LoggerConfig,
-    LogTransport,
-    LogTransportOptions
-}
+export type * from './types';

@@ -22,7 +22,7 @@ describe('Logger', () => {
         error: 3,
       },
       severity: 'info',
-      transport: consoleTransport,
+      transport: consoleTransport(),
     };
 
     const logger = createLogger(config);
@@ -49,7 +49,7 @@ describe('Logger', () => {
         error: 3,
       },
       severity: 'debug',
-      transport: consoleTransport,
+      transport: consoleTransport(),
       enabledContexts: ['testContext'],
     };
 
@@ -68,7 +68,7 @@ describe('Logger', () => {
         error: 3,
       },
       severity: 'debug',
-      transport: consoleTransport,
+      transport: consoleTransport(),
       enabledContexts: ['testContext'],
     };
 

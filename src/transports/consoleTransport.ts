@@ -1,4 +1,4 @@
-import { LogTransport, LogTransportOptions } from '../types';
+import { LogTransport, LogTransportParams } from '../types';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const availableColors: any = {
@@ -43,47 +43,47 @@ const availableBgColors: any = {
 
 const resetColors = `\x1b[0m`;
 
-const consoleTransport: LogTransport = (props: LogTransportOptions) => {
-    if (!props) return;
-    let msg = props.message;
+const consoleTransport = (): LogTransport => (params: LogTransportParams) => {
+    if (!params) return;
+    let msg = params.message;
     let color: string | null = null;
-    const date = props.date.toLocaleTimeString('en-US', { hour12: true });
+    const date = params.date.toLocaleTimeString('en-US', { hour12: true });
 
     // set format with color if available
-    const levelColor = availableColors[props.options?.colors?.[props.level]];
+    const levelColor = availableColors[params.options?.colors?.[params.level]];
     if (levelColor) {
         color = `\x1b[${levelColor}m`;
-        msg = `${color}${date} | ${props.level.toUpperCase()} : ${msg}${resetColors}`;
+        msg = `${color}${date} | ${params.level.toUpperCase()} : ${msg}${resetColors}`;
     } else {
-        msg = `${date} | ${props.level.toUpperCase()} : ${msg}`;
+        msg = `${date} | ${params.level.toUpperCase()} : ${msg}`;
     }
 
     let ctxColor;
     let ctxMsg;
     // context(namespace) exists
-    if (props.context) {
-        const bgColor = availableBgColors[props.options?.contextColors?.[props.context]];
+    if (params.context) {
+        const bgColor = availableBgColors[params.options?.contextColors?.[params.context]];
         if (bgColor) {
             ctxColor = `\x1b[${bgColor}m`;
             const whiteTextColor = `\x1b[37m`;
-            ctxMsg = `${ctxColor}${whiteTextColor} ${props.context} ${resetColors}`;
+            ctxMsg = `${ctxColor}${whiteTextColor} ${params.context} ${resetColors}`;
         } else {
-            ctxMsg = `${props.context}`;
+            ctxMsg = `${params.context}`;
         }
     }
 
     if (ctxMsg) {
         if (color) {
-            msg = `${color}${date} |${resetColors} ${ctxMsg} ${color}| ${props.level.toUpperCase()} : ${
-                props.message
+            msg = `${color}${date} |${resetColors} ${ctxMsg} ${color}| ${params.level.toUpperCase()} : ${
+                params.message
             }${resetColors}`;
         } else {
-            msg = `${date} | ${ctxMsg} | ${props.level.toUpperCase()} : ${props.message}`;
+            msg = `${date} | ${ctxMsg} | ${params.level.toUpperCase()} : ${params.message}`;
         }
     } else if (color) {
-        msg = `${color}${date} |${resetColors} ${color}${props.level.toUpperCase()} : ${props.message}${resetColors}`;
+        msg = `${color}${date} |${resetColors} ${color}${params.level.toUpperCase()} : ${params.message}${resetColors}`;
     } else {
-        msg = `${date} | ${props.level.toUpperCase()} : ${props.message}`;
+        msg = `${date} | ${params.level.toUpperCase()} : ${params.message}`;
     }
     // eslint-disable-next-line no-console
     console.log(msg.trim());
