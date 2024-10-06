@@ -77,6 +77,6 @@ export class Logger {
     }
 }
 
-export const createLogger = (config: LoggerConfig): Logger => new Logger(config);
+export const createLogger = (config?: LoggerConfig): Logger => config ? new Logger(config) : new Logger();
 
 export type * from './types';
