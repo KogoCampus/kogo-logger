@@ -1,4 +1,4 @@
-import createLogger from '../src/index';
+import { createLogger } from '../src/index';
 import consoleTransport from '../src/transports/consoleTransport';
 import { LoggerConfig } from '../src/types';
 
