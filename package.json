@@ -1,5 +1,5 @@
 {
-  "name": "kogo-logger",
+  "name": "@kogo/logger",
   "version": "1.0.1",
   "description": "A reusable logging utility.",
   "main": "dist/index.js",
