@@ -28,7 +28,7 @@ const stringifyFunc = (msg: Message): string => {
     }
 };
 
-class Logger {
+export class Logger {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
 
@@ -77,8 +77,6 @@ class Logger {
     }
 }
 
-const createLogger = (config: LoggerConfig): Logger => new Logger(config);
-
-export default createLogger;
+export const createLogger = (config: LoggerConfig): Logger => new Logger(config);
 
 export type * from './types';
