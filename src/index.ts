@@ -37,7 +37,10 @@ export class Logger {
     private context: string | null;
 
     constructor(config: LoggerConfig = defaultConfig, context: string | null = null) {
-        this.config = config;
+        this.config = {
+            ...defaultConfig,
+            ...config,
+        };
         this.context = context;
         this.setupLogMethods();
     }
@@ -80,3 +83,5 @@ export class Logger {
 export const createLogger = (config?: LoggerConfig): Logger => config ? new Logger(config) : new Logger();
 
 export type * from './types';
+
+export * from './transports/consoleTransport';

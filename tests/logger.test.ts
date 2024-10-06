@@ -15,12 +15,6 @@ describe('Logger', () => {
 
   it('should log messages based on severity level', () => {
     const config: LoggerConfig = {
-      levels: {
-        debug: 0,
-        info: 1,
-        warn: 2,
-        error: 3,
-      },
       severity: 'info',
       transport: consoleTransport(),
     };
@@ -42,12 +36,6 @@ describe('Logger', () => {
 
   it('should support custom contexts', () => {
     const config: LoggerConfig = {
-      levels: {
-        debug: 0,
-        info: 1,
-        warn: 2,
-        error: 3,
-      },
       severity: 'debug',
       transport: consoleTransport(),
       enabledContexts: ['testContext'],
@@ -61,12 +49,6 @@ describe('Logger', () => {
 
   it('should throw an error for invalid context', () => {
     const config: LoggerConfig = {
-      levels: {
-        debug: 0,
-        info: 1,
-        warn: 2,
-        error: 3,
-      },
       severity: 'debug',
       transport: consoleTransport(),
       enabledContexts: ['testContext'],
