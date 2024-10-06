@@ -1,5 +1,5 @@
 {
-  "name": "kogo-logger",
+  "name": "@KogoCampus/logger",
   "version": "1.0.41",
   "description": "A reusable logging utility.",
   "author": "KogoCampus",
