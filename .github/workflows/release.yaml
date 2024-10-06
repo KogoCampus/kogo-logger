@@ -42,6 +42,6 @@ jobs:
           body: "Release of version v${{ env.VERSION }}"
         
       - name: Publish to GitHub Package Registry
-        run: yarn publish --non-interactive
+        run: npm publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
