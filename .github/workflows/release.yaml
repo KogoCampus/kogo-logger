@@ -33,6 +33,11 @@ jobs:
       - name: Run build
         run: yarn build
         
+      - name: Login to GitHub Package Registry
+        run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" > ~/.npmrc
+          echo "Logged in to GitHub Package Registry"
+
       - name: Create GitHub release
         uses: ncipollo/release-action@v1
         with:
@@ -40,8 +45,8 @@ jobs:
           tag: v${{ env.VERSION }}  # Use extracted version for tag
           name: v${{ env.VERSION }} # Use extracted version for release name
           body: "Release of version v${{ env.VERSION }}"
-        
+
       - name: Publish to GitHub Package Registry
-        run: npm publish --non-interactive
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
