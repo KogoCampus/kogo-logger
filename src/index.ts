@@ -84,5 +84,5 @@ export const createLogger = (config?: LoggerConfig): Logger => config ? new Logg
 
 export type * from './types';
 
-export * from './transports/consoleTransport';
-export * from './transports/sentryTransport';
+export * from './transports';
+
