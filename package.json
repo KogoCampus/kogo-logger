@@ -1,6 +1,6 @@
 {
   "name": "@KogoCampus/logger",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A reusable logging utility.",
   "author": "KogoCampus",
   "license": "MIT",
@@ -31,8 +31,5 @@
     "semantic-release": "^24.1.2",
     "ts-jest": "^29.2.5",
     "typescript": "^5.6.2"
-  },
-  "dependencies": {
-    "@sentry/node": "^8.36.0"
   }
 }

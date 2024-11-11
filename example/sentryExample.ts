@@ -1,7 +1,4 @@
-import { createLogger } from '../src/index';
-const consoleTransport = require('../src/transports/consoleTransport').default;
-const sentryTransport = require('../src/transports/sentryTransport').default;
-import { LoggerConfig } from '../src/types';
+import { sentryTransport } from '../src';
 
 // Example usage
 const config = {
